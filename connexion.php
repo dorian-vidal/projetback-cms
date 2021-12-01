@@ -12,24 +12,8 @@ $erreur_email = "";
 
 // Validation email
 if(isset($_SESSION['inscription']) && $_SESSION['inscription'] == "enregistre") {
-    $notification = "Vous êtes bien inscrit. Un email de validation a été envoyé";
+    $notification = "Vous êtes bien inscrit. Vous pouvez vous connecter";
     unset($_SESSION["inscription"]);
-}
-if(isset($_GET['token'])) {
-    $pdo_statement = $pdo_object->prepare("SELECT id_membre, email_validation FROM membre WHERE email_validation = :email_validation");
-    $pdo_statement->bindValue(':email_validation', htmlspecialchars($_GET['token']), PDO::PARAM_STR);
-    $pdo_statement->execute();
-    $membre_array = $pdo_statement->fetch(PDO::FETCH_ASSOC);
-    if (!empty($membre_array)) {
-        // verifie token
-        if (htmlspecialchars($_GET['token']) === $membre_array['email_validation']) {
-            $pdo_statement = $pdo_object->prepare("UPDATE membre SET email_validation = :email_validation WHERE id_membre = :id_membre");
-            $pdo_statement->bindValue(':email_validation', "1", PDO::PARAM_STR);
-            $pdo_statement->bindValue(':id_membre', $membre_array['id_membre'], PDO::PARAM_INT);
-            $pdo_statement->execute();
-            $notification = "Vous êtes bien inscrit. Vous pouvez vous connecter";
-        }
-    }
 }
 
 // Limit connexion
@@ -53,42 +37,36 @@ if (isset($_POST['connexion'])) {
             $pdo_statement->execute();
             $membre_array = $pdo_statement->fetch(PDO::FETCH_ASSOC);
             if (!empty($membre_array)) {
-                // Vérifie validation email
-                if ($membre_array['email_validation'] == "1") {
-                    // Vérifie Mdp
-                    if (password_verify($_POST['mdp'], $membre_array['mdp']) && $membre_array['limit_connexion'] < 10) {
-                        // Enregister
-                        $_SESSION['membre']['id_membre'] = $membre_array['id_membre'];
-                        $_SESSION['membre']['nom'] = $membre_array['nom'];
-                        $_SESSION['membre']['prenom'] = $membre_array['prenom'];
-                        $_SESSION['membre']['email'] = $membre_array['email'];
-                        $_SESSION['membre']['statut'] = $membre_array['statut'];
-                        // Redirection
-                        if($_SESSION['membre']['statut'] == 0) {
-                            header("Location:" . URL . "/gestion-davy-crud.php");
-                        }
-                        if($_SESSION['membre']['statut'] == 1) {
-                            header("Location:" . URL . "/index.php");
-                        }
+                // Vérifie Mdp
+                if (password_verify($_POST['mdp'], $membre_array['mdp']) && $membre_array['limit_connexion'] < 10) {
+                    // Enregister
+                    $_SESSION['membre']['id_membre'] = $membre_array['id_membre'];
+                    $_SESSION['membre']['nom'] = $membre_array['nom'];
+                    $_SESSION['membre']['prenom'] = $membre_array['prenom'];
+                    $_SESSION['membre']['email'] = $membre_array['email'];
+                    $_SESSION['membre']['statut'] = $membre_array['statut'];
+                    // Redirection
+                    if($_SESSION['membre']['statut'] == 0) {
+                        header("Location:" . URL . "/gestion-davy-crud.php");
                     }
-                    else {
-                        // Limit connexion
-                        $pdo_statement_2 = $pdo_object->prepare("UPDATE membre SET limit_connexion = :limit_connexion, limit_date = :limit_date WHERE id_membre = :id_membre");
-                        $pdo_statement_2->bindValue(':limit_connexion', $membre_array['limit_connexion'] + 1, PDO::PARAM_INT);
-                        $pdo_statement_2->bindValue(':id_membre', $membre_array['id_membre'], PDO::PARAM_INT);
-                        $pdo_statement_2->bindValue(':limit_date', date("Y-m-d"), PDO::PARAM_STR);
-                        $pdo_statement_2->execute();
-                        if ($membre_array['limit_connexion'] < 10) {
-                            $tentative = 10 - $membre_array['limit_connexion'];
-                            $erreur = "L'email ou le mot de passe n'est pas valable. Il vous reste " . $tentative . " tentatives";
-                        }
-                        else {
-                            $erreur = "Le compte est bloqué jusqu'à minuit";
-                        }
+                    if($_SESSION['membre']['statut'] == 1) {
+                        header("Location:" . URL . "/index.php");
                     }
                 }
                 else {
-                    $erreur = "L'email n'est pas validé. Veuillez consulter votre boîte mail";
+                    // Limit connexion
+                    $pdo_statement_2 = $pdo_object->prepare("UPDATE membre SET limit_connexion = :limit_connexion, limit_date = :limit_date WHERE id_membre = :id_membre");
+                    $pdo_statement_2->bindValue(':limit_connexion', $membre_array['limit_connexion'] + 1, PDO::PARAM_INT);
+                    $pdo_statement_2->bindValue(':id_membre', $membre_array['id_membre'], PDO::PARAM_INT);
+                    $pdo_statement_2->bindValue(':limit_date', date("Y-m-d"), PDO::PARAM_STR);
+                    $pdo_statement_2->execute();
+                    if ($membre_array['limit_connexion'] < 10) {
+                        $tentative = 10 - $membre_array['limit_connexion'];
+                        $erreur = "L'email ou le mot de passe n'est pas valable. Il vous reste " . $tentative . " tentatives";
+                    }
+                    else {
+                        $erreur = "Le compte est bloqué jusqu'à minuit";
+                    }
                 }
             }
             else {

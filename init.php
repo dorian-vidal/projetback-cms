@@ -54,5 +54,5 @@ $bdd_table = bdd_table_davy($pdo_object, $bdd_name);
 session_start();
 
 // VOIR SESSION
-// echo '<pre>'; print_r($_SESSION); echo '</pre>';
+ echo '<pre>'; print_r($_SESSION); echo '</pre>';
 ?>

@@ -105,19 +105,13 @@ require_once("header.php");
                                 <span>d</span>
                                 <span>e</span>
                                 <span>r</span>
-                                <input type="submit" id="inscription" name="inscription" value="Inscription" class="bouton_submit g-recaptcha" data-sitekey="<?= RECAPTCHA_KEY_SITE ?>" data-callback="onSubmit" data-action="submit">
+                                <input type="submit" id="inscription" name="inscription" value="Inscription" class="bouton_submit">
                             </a>
                         </div><br>
                     </form>
                 </div>
             </div>
         </div>
-        <script src="https://www.google.com/recaptcha/api.js"></script>
-        <script>
-            function onSubmit(token) {
-                document.getElementById("form_inscription").submit();
-            }
-        </script>
 <?php
 require_once("footer.php");
 ?>
