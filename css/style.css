@@ -1,0 +1,144 @@
+/* Davy CHEN - 2021 */
+
+
+/* root */
+:root {
+    --color-0: #222222;
+    --color-1: #E00A18;
+    --font-size-1: 14px;
+}
+
+/* general */
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    scrollbar-width: thin;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    color: var(--color-0);
+    font-size: var(--font-size-1);
+    margin: 0;
+}
+h1, h2, p {
+    margin: 0;
+}
+a, a:hover {
+    color: var(--color-0);
+    text-decoration: none;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+label {
+    display: inline-block;
+    margin-bottom: 12px;
+}
+input, textarea, select {
+    color: var(--color-0);
+    font-size: var(--font-size-1);
+    border: 1px solid #D8E2EF;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 16px;
+}
+textarea {
+    overflow: auto;
+    resize: vertical;
+}
+input::placeholder, textarea::placeholder {
+    color: #BDC6D1;
+    font-weight: 500;
+}
+input[type=submit] {
+    cursor: pointer;
+}
+input[type=file] {
+    background-color: inherit;
+    padding: 0;
+    border-radius: 0;
+    opacity: 0;
+}
+input[type=file] + label {
+    display: block;
+    cursor: pointer;
+}
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+option:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    text-align: left;
+    border: 1px solid #D8E2EF;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #F0F4F9;
+}
+tr:hover {
+    background-color: #E2E9F3;
+}
+th {
+    background-color: #E2E9F3;
+    text-transform: capitalize;
+}
+.table_responsive_davy {
+    overflow-x: auto;
+    width: 100%;
+    padding: 0;
+}
+.hr_davy {
+    background: var(--color-1);
+    border: 0;
+    width: 32px;
+    height: 4px;
+    margin: 8px 0 16px 0;
+    border-radius: 32px;
+}
+.hr_davy.show {
+    animation: animation_davy_1 0.5s linear;
+    width: 64px;
+}
+@keyframes animation_davy_1 {
+    0% {width: 32px;}
+    100% {width: 64px;}
+}
+.width_full_davy {
+    width: 100%;
+}
+.bouton_full_davy {
+    padding: 8px 0;
+}
+.block_center_davy {
+    display: block;
+    margin: 8px auto 16px auto;
+}
+.flex_center_davy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.text_center_davy {
+    text-align: center;
+}
+.fixed_top_davy {
+    position: fixed;
+    top: 0;
+}
+.color_davy {
+    color: var(--color-1);
+}
+
+/* bootstrap */
+.row {
+    margin: 0;
+}

@@ -1,0 +1,87 @@
+/* Davy CHEN - 2021 */
+
+/* bouton_anim_davy */
+.bouton_anim_davy {
+    background: var(--color-1);
+    color: white;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    font-size: var(--font-size-1);
+    padding: 8px 48px;
+    border-radius: 32px;
+    font-weight: 700;
+}
+.bouton_anim_davy span {
+    color: white;
+    display: inline-block;
+    text-transform: uppercase;
+    transform: translate(0, -20px);
+    transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
+    font-size: var(--font-size-1);
+    opacity: 0;
+}
+.bouton_anim_davy:before {
+    content: attr(data-text);
+    text-transform: uppercase;
+    position: absolute;
+    transform: translate(0, 0);
+    transition: 0.25s cubic-bezier(0.5, -1, 0.5, 2);
+    font-size: var(--font-size-1);
+    width: 100%;
+    left: 0;
+    letter-spacing: 2px;
+    opacity: 1;
+}
+.bouton_anim_davy:hover:before, .bouton_anim_davy:focus:before {
+    color: white;
+    transform: translate(0, 20px);
+    opacity: 0;
+}
+.bouton_anim_davy:hover span, .bouton_anim_davy:focus span {
+    color: white;
+    transform: translate(0, 0);
+    opacity: 1;
+}
+.bouton_anim_davy:hover span:nth-child(1), .bouton_anim_davy:focus span:nth-child(1) {
+    transition-delay: 0.025s;
+}
+.bouton_anim_davy:hover span:nth-child(2), .bouton_anim_davy:focus span:nth-child(2) {
+    transition-delay: 0.05s;
+}
+.bouton_anim_davy:hover span:nth-child(3), .bouton_anim_davy:focus span:nth-child(3) {
+    transition-delay: 0.075s;
+}
+.bouton_anim_davy:hover span:nth-child(4), .bouton_anim_davy:focus span:nth-child(4) {
+    transition-delay: 0.1s;
+}
+.bouton_anim_davy:hover span:nth-child(5), .bouton_anim_davy:focus span:nth-child(5) {
+    transition-delay: 0.125s;
+}
+.bouton_anim_davy:hover span:nth-child(6), .bouton_anim_davy:focus span:nth-child(6) {
+    transition-delay: 0.15s;
+}
+.bouton_anim_davy:hover span:nth-child(7), .bouton_anim_davy:focus span:nth-child(7) {
+    transition-delay: 0.175s;
+}
+.bouton_anim_davy:hover span:nth-child(8), .bouton_anim_davy:focus span:nth-child(8) {
+    transition-delay: 0.2s;
+}
+.bouton_anim_davy:hover span:nth-child(9), .bouton_anim_davy:focus span:nth-child(9) {
+    transition-delay: 0.225s;
+}
+.bouton_envoyer {
+    position: relative;
+}
+.bouton_submit {
+    color: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    cursor: pointer;
+    border: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}

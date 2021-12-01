@@ -1,0 +1,144 @@
+/* Davy CHEN - 2021 */
+
+/* nav_mobile_davy */
+.nav_mobile_davy {
+    display: none;
+    position: fixed;
+    background-color: white;
+    box-shadow: 16px 32px 32px rgb(0, 0, 0);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 13;
+    transition: 0.75s;
+}
+.nav_mobile_center_davy {
+    display: flex;
+    text-align: center;
+    box-shadow: 16px 32px 32px rgb(0, 0, 0);
+}
+.menu_mobile_davy {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    flex: 1;
+    height: 60px;
+    padding: 12px 0;
+    transition: 0.75s;
+}
+.texte_menu_mobile_davy {
+    display: inline-block;
+    text-transform: uppercase;
+    transform: translate(0, -8px);
+    margin: 0;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: 0.75s;
+}
+.icon_menu_mobile_davy {
+    max-width: 24px;
+    height: 24px;
+}
+@media only screen and (max-width: 700px) {
+    .nav_mobile_davy {
+        display: block;
+    }
+}
+
+/* nav_mobile_burger_davy */
+.block_icon_menu_mobile_burger_davy, .checkbox_pc_burger_davy, .nav_icon_menu_mobile_burger_davy {
+	width: 24px;
+	height: 24px;
+    z-index: 14;
+}
+.block_icon_menu_mobile_burger_davy {
+    display: inline-block;
+    position: relative;
+}
+.checkbox_pc_burger_davy {
+    position: absolute;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    z-index: 15;
+}
+.nav_icon_menu_mobile_burger_davy {
+    transition: all ease-in-out 0.75s;
+	position: absolute;
+    top: 0;
+    left: 0;
+}
+.nav_icon_menu_mobile_burger_davy span {
+	position: relative;
+	margin: 0 auto;
+	top: 12px;
+	-webkit-transition-duration: 0s; transition-duration: 0s;
+	-webkit-transition-delay: 0.2s; transition-delay: 0.2s;
+}
+.nav_icon_menu_mobile_burger_davy span:before {
+	margin-top: -8px;
+}
+.nav_icon_menu_mobile_burger_davy span:after {
+	margin-top: 8px;
+}
+.nav_icon_menu_mobile_burger_davy span:before, .nav_icon_menu_mobile_burger_davy span:after {
+	position: absolute;
+	content: '';
+	-webkit-transition-property: margin, -webkit-transform; transition-property: margin, transform;
+	-webkit-transition-duration: 0.2s; transition-duration: 0.2s;
+	-webkit-transition-delay: 0.2s, 0s; transition-delay: 0.2s, 0s;
+}
+.nav_icon_menu_mobile_burger_davy span, .nav_icon_menu_mobile_burger_davy span:before, .nav_icon_menu_mobile_burger_davy span:after {
+	display: block;
+	background-color: var(--color-0);
+	width: 24px;
+	height: 4px;
+    border-radius: 32px;
+}
+#nav_icon_menu_mobile_burger_davy:checked ~ .nav_icon_menu_mobile_burger_davy span {
+	background-color: rgba(0,0,0,0.0);
+	-webkit-transition-delay: 0.2s; transition-delay: 0.2s;
+}
+#nav_icon_menu_mobile_burger_davy:checked ~ .nav_icon_menu_mobile_burger_davy span:before {
+	background-color: var(--color-1);
+	margin-top: 0;
+	-webkit-transform: rotate(45deg); transform: rotate(45deg);
+	-webkit-transition-delay: 0s, 0.2s; transition-delay: 0s, 0.2s;
+}
+#nav_icon_menu_mobile_burger_davy:checked ~ .nav_icon_menu_mobile_burger_davy span:after {
+	background-color: var(--color-1);
+	margin-top: 0;
+	-webkit-transform: rotate(-45deg); transform: rotate(-45deg);
+	-webkit-transition-delay: 0s, 0.2s; transition-delay: 0s, 0.2s;
+}
+.nav_mobile_burger_davy {
+    background-color: white;
+    display: none;
+    overflow: auto;
+    position: fixed;
+    transition: all ease-in-out 0.75s;
+    clip-path: circle(0% at 90% 90%);
+    box-shadow: 16px 32px 32px rgb(0, 0, 0);
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+    height: 60vh;
+    width: 100vw;
+    z-index: 12;
+}
+.nav_mobile_burger_davy.show {
+    clip-path: circle(200% at 90% 90%);
+    opacity: 1;
+}
+@media only screen and (max-width: 700px) {
+    .nav_mobile_burger_davy {
+        display: block;
+    }
+}
