@@ -4,7 +4,7 @@ $bdd_name = "davy_cms";
 $bdd_host = "localhost";
 $bdd_user = "root";
 $bdd_password = "";
-$url_davy = 'http://localhost/davy_cms';
+$url_davy = 'http://localhost/projetback-cms';
 
 // BDD
 function connect_database_davy($bdd_name, $bdd_host, $bdd_user, $bdd_password) {

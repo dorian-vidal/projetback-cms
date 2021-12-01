@@ -10,4 +10,4 @@ RewriteRule ^([^\.]+)$ $1.php [NC,L]
 RewriteRule ^(.*)=(.+)\.php ./$1.php?id=$2 [L]
 
 # Page erreur
-ErrorDocument 404 https://one-website.com
+ErrorDocument 404 http://localhost/projetback-cms
