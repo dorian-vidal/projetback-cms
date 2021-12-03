@@ -1,0 +1,71 @@
+/* Davy CHEN - 2021 */
+
+/* animation_scroll_davy */
+.block_animation_scroll_davy {
+    overflow: hidden;
+    position: relative;
+    height: 70vh;
+}
+.animation_scroll_davy_1:nth-child(1), .animation_scroll_davy_1:nth-child(2), .animation_scroll_davy_1:nth-child(3), .animation_scroll_davy_1:nth-child(4), .animation_scroll_davy_1:nth-child(5), .animation_scroll_davy_1:nth-child(6), .animation_scroll_davy_1_0, .animation_scroll_davy_2:nth-child(1), .animation_scroll_davy_2:nth-child(2), .animation_scroll_davy_2:nth-child(3), .animation_scroll_davy_2:nth-child(4), .animation_scroll_davy_2:nth-child(5), .animation_scroll_davy_2:nth-child(6), .animation_scroll_davy_2_0, .animation_scroll_davy_3:nth-child(1), .animation_scroll_davy_3:nth-child(2), .animation_scroll_davy_3:nth-child(3), .animation_scroll_davy_3:nth-child(4), .animation_scroll_davy_3:nth-child(5), .animation_scroll_davy_3:nth-child(6), .animation_scroll_davy_3_0 {
+    position: absolute;
+    transform: translate(-50%, 0%);
+    bottom: 0%;
+    left: 50%;
+    min-width: 100vw;
+    min-height: 70vh;
+}
+/* ------------------------------- 1 ------------------------------- */
+.animation_scroll_davy_1:nth-child(1), .animation_scroll_davy_2:nth-child(1), .animation_scroll_davy_3:nth-child(1) {
+    animation: animation_scroll_davy_1 1s linear infinite;
+}
+@keyframes animation_scroll_davy_1 {
+    0% {transform: translate(-50%, 0%);}
+    100% {transform: translate(-50%, 75%);}
+}
+/* ------------------------------- 2 ------------------------------- */
+.animation_scroll_davy_1:nth-child(2), .animation_scroll_davy_2:nth-child(2), .animation_scroll_davy_3:nth-child(2) {
+    animation: animation_scroll_davy_2 1s linear infinite;
+}
+@keyframes animation_scroll_davy_2 {
+    0% {transform: translate(-50%, 0%);}
+    100% {transform: translate(-50%, 60%);}
+}
+/* ------------------------------- 3 ------------------------------- */
+.animation_scroll_davy_1:nth-child(3), .animation_scroll_davy_2:nth-child(3), .animation_scroll_davy_3:nth-child(3) {
+    animation: animation_scroll_davy_3 1s linear infinite;
+}
+@keyframes animation_scroll_davy_3 {
+    0% {transform: translate(-50%, 0%);}
+    100% {transform: translate(-50%, 45%);}
+}
+/* ------------------------------- 4 ------------------------------- */
+.animation_scroll_davy_1:nth-child(4), .animation_scroll_davy_2:nth-child(4), .animation_scroll_davy_3:nth-child(4) {
+    animation: animation_scroll_davy_4 1s linear infinite;
+}
+@keyframes animation_scroll_davy_4 {
+    0% {transform: translate(-50%, 0%);}
+    100% {transform: translate(-50%, 30%);}
+}
+/* ------------------------------- 5 ------------------------------- */
+.animation_scroll_davy_1:nth-child(5), .animation_scroll_davy_2:nth-child(5), .animation_scroll_davy_3:nth-child(5) {
+    animation: animation_scroll_davy_5 1s linear infinite;
+}
+@keyframes animation_scroll_davy_5 {
+    0% {transform: translate(-50%, 0%);}
+    100% {transform: translate(-50%, 15%);}
+}
+/* ------------------------------- 0 ------------------------------- */
+.animation_scroll_davy_1, .animation_scroll_davy_2, .animation_scroll_davy_3 {
+    animation-play-state: paused !important;
+    animation-fill-mode: both !important;
+    animation-iteration-count: 1 !important;
+}
+.animation_scroll_davy_1 {
+    animation-delay: calc(var(--var_animation_scroll_davy_1) * -1s) !important;
+}
+.animation_scroll_davy_2 {
+    animation-delay: calc(var(--var_animation_scroll_davy_2) * -1s) !important;
+}
+.animation_scroll_davy_3 {
+    animation-delay: calc(var(--var_animation_scroll_davy_3) * -1s) !important;
+}
